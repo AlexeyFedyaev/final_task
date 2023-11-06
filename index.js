@@ -2,10 +2,10 @@ let timerId; // переменная, которая будет хранить I
 
 
 const startButton = document.getElementById("start");
-startButton.addEventListener('click', function Start() {
+startButton.addEventListener('click', function startTimer() {
     // НУЖНО ПОГУГЛИТЬ ЧТО ТАКОЕ setInterval
     timerId = setInterval(updateClock, 1000); // запускаем  updateClock() каждую секунду
-    startButton.removeEventListener("click", Start);
+    startButton.removeEventListener("click", startTimer);
 });
 
 
@@ -13,9 +13,9 @@ const stopButton = document.getElementById("stop");
 stopButton.addEventListener('click', function Stop() {
     // НУЖНО ПОГУГЛИТЬ ЧТО ТАКОЕ clearInterval
     clearInterval(timerId); // останавливаем таймер
-    startButton.addEventListener('click', function () {
+    startButton.addEventListener('click', function startTimer() {
         timerId = setInterval(updateClock, 1000);
-        startButton.removeEventListener('click', Stop);
+        startButton.removeEventListener('click', startTimer);
     });
 });
 
